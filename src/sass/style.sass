@@ -1,0 +1,298 @@
+@import "variable"
+
+/*Преременные*/
+
+/* basing setting*/
+body
+	background: $main-bg-col
+	font-family: 'RalewayRegular', sans-serif
+	font-size: 14px
+
+h1, h2, h3, h4, h5, h6
+	margin: 0
+	padding: 0
+a, a:hover,a:focus
+	text-decoration: none
+	color: $col-black
+li
+	list-style: none
+
+/*****Header*****/
+
+header
+	position: relative
+	background: url("../img/cover.jpg") fixed
+	background-size: cover
+	width: 100%
+	height: 100vh
+	min-height: 600px
+	color: #ffffff
+
+	.home-overlay
+		background: url("../img/pattern.png")
+		width: 100%
+		height: 100%
+
+	.intro
+		position: absolute
+		top: 40%
+		width: 100%
+		text-align: center
+		p
+			font-size: 1.3em
+			span
+				color: #E7746F
+		h1
+			font-size: 3em
+			font-weight: 800
+			text-transform: uppercase
+
+	.resume
+		display: inline-block
+		margin: 20px
+		padding: 10px
+
+		color: $main-bg-col
+		text-transform: uppercase
+
+		font-weight: 600
+		border: solid 2px $main-bg-col
+		border-radius: 10px
+		&:hover
+			color: $second-col
+			border: solid 2px $second-col
+
+/*****Navigation*****/
+
+.navbar-custom
+	width: 100%
+	background: $second-bg-col
+	border-bottom: solid 1px $main-bg-col
+	z-index: 998
+	.navbar-header
+		display: inline-block
+	.navbar-brand
+		font-family: $font-lb
+		font-size: 30px
+		&:hover
+			color: $col-black
+			cursor: pointer
+	.icon-bar
+		background: $col-black
+	.navbar-nav
+		font-size: 0.8em
+		letter-spacing: 4px
+		text-transform: uppercase
+		.scroll-to
+			transition: all 0.4s ease-in-out 0s
+			&.active,&:hover, &:active, &:focus
+				background: none
+				color: $second-col
+
+
+/*Skills*/
+
+.block-title
+	font-size: 3em
+	font-weight: 900
+	text-transform: uppercase
+.subtitle
+	font-size: 1.4em
+	color: $subtitle-col
+.block-line
+	width: 100px
+	height: 1px
+	background: $subtitle-col
+	margin: 30px auto
+.wrap-skills
+	padding: 120px 0
+	text-align: center
+	.chart-circle
+		display: inline-block
+		position: relative
+		width: 140px
+		height: 140px
+		margin: 50px 0
+		.percent
+			line-height: 140px
+			font-size: 1.4em
+		canvas
+			position: absolute
+			top: 0
+			left: 0
+	.skills-all
+		margin-top: 50px
+		ul
+			background: white
+			min-height: 200px
+			padding:  20px
+			border-bottom: solid 1px gainsboro
+		i
+			margin-bottom: 20px
+		li
+			font-size: 1.2em
+			font-weight: 600
+
+
+/*****Work*****/
+
+.wrap-work
+	@extend .wrap-skills
+	background: $second-bg-col
+	.work-example
+		margin-top: 50px
+	.effect-bubba
+		background: #1b6d85
+
+		img
+			position: relative
+			max-width: 100%
+			width: 100%
+			transition: opacity 0.2s
+		&:hover img
+			opacity: .4
+
+		figcaption
+			position: absolute
+			top: 0
+			left: 0
+			width: 100%
+			height: 100%
+			padding: 30px
+			opacity: 0
+			&::before,
+			&::after
+				content: ""
+				position: absolute
+				top: 30px
+				bottom: 30px
+				left: 30px
+				right: 30px
+			&::before
+				border-top: solid 1px $second-bg-col
+				border-bottom: solid 1px $second-bg-col
+				transform: scale(0,1)
+				transition: opacity 0.35s, transform 0.35s
+			&::after
+				border-left: solid 1px $second-bg-col
+				border-right: solid 1px $second-bg-col
+				transform: scale(1,0)
+				transition: opacity 0.35s, transform 0.35s
+
+		&:hover figcaption
+			opacity: 1
+		&:hover figcaption::before,
+		&:hover figcaption::after
+			transform: scale(1)
+
+	.work-link
+		position: absolute
+		top: 0
+		left: 0
+		width: 100%
+		height: 100%
+		padding-top: 10%
+		z-index: 997
+	a
+		font-weight: 600
+		font-size: 2em
+		line-height: 2em
+		color: $second-col
+		&:hover
+			color: $second-bg-col
+	i
+		margin-top: 13%
+
+
+/*About me*/
+
+.wrap-about-me
+	@extend .wrap-skills
+	background: $main-bg-col
+.descr-me
+	font-size: 1.4em
+	line-height: 1.2em
+	h3
+		font-size: 1.5em
+		color: $second-col
+	&:nth-child(1)
+		text-align: end
+	&:nth-child(2)
+		border-left: solid 1px $second-col
+		text-align: start
+	span
+		font-weight: 600
+
+
+/*Contact*/
+
+.contact
+	@extend .wrap-skills
+	background: $second-bg-col
+	ul
+		padding: 0
+		font-family: 'Source Sans Pro', sans-serif
+		font-size: 1.5em
+		font-weight: 600
+		line-height: 2em
+	.prof-link
+		li
+			display: inline-block
+			margin: 10px
+		i
+			transition: transform 1s
+		a
+			display: inline-block
+			&:hover i
+				transform: rotate(360deg)
+
+	.contact-link
+		a
+			display: inline-block
+			width: 100%
+			&:hover
+				color: $second-col
+			&:hover i
+				color: #1b6d85
+	.contact-form
+		button
+			padding: 5px
+			background: #3c4144
+			color: $main-bg-col
+			transition: background .5s
+			&:hover
+				background: $col-black
+//Footer
+footer
+	background: #3c4144
+	color: $main-bg-col
+	text-align: center
+	p
+		margin: 0
+		padding: 25px 0
+.preloader
+	position: fixed
+	left: 0
+	top: 0
+	right: 0
+	bottom: 0
+	background: $main-bg-col
+	z-index: 100500
+
+	.spinner
+		background: url('../img/preloader.gif') no-repeat center
+		width: 200px
+		height: 200px
+		position: absolute
+		left: 50%
+		top: 50%
+		margin: -100px 0 0 -100px
+
+/*Media query*/
+
+@media all and (max-width: 768px)
+	.wrap-about-me .descr-me
+		text-align: center
+		border-left: none
+
+
