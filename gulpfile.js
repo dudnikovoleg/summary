@@ -3,15 +3,14 @@
 
 const gulp 			= require('gulp');
 const sass 			= require('gulp-sass');
-const autoprefixer  = require('gulp-autoprefixer');
 const concat 		= require('gulp-concat');
 const uglify 		= require('gulp-uglifyjs');
 const sourcemaps 	= require('gulp-sourcemaps');
 const cssmin 		= require('gulp-cssmin');
 const rename 		= require('gulp-rename');
 const del 			= require('del');
-const browserSync 	= require('browser-sync').create();
-const imagemin 		= require('gulp-imagemin');
+const browserSync = require('browser-sync').create();
+const imagemin = require('gulp-imagemin');
 
 
 
@@ -20,10 +19,6 @@ gulp.task('sass', function () {
   return gulp.src('src/sass/**/*.sass')
     .pipe(sourcemaps.init())
     .pipe(sass().on('error', sass.logError))
-    .pipe(autoprefixer({
-            browsers: ['last 15 versions', '> 1%', 'ie 8'],
-            cascade: true
-        }))
     .pipe(sourcemaps.write())
     .pipe(gulp.dest('src/css'))
      .pipe(browserSync.stream());

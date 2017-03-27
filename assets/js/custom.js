@@ -25,11 +25,7 @@
 
    $('#home').height($(window).height());
 
-        if (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)) {
-            $('#home').css({'background-attachment': 'scroll'});
-        } else {
-            $('#home').parallax('50%', 0.1);
-        }
+   $('#home').parallax('50%', 0.2);
 
 
 /* ---------------------------------------------- /*
@@ -92,19 +88,6 @@
 /* ---------------------------------------------- /*
  * Contact form ajax
 /* ---------------------------------------------- */
-var response = $('.ajax-response')
-
-        $('#contact-form').submit(function() {
-            $.ajax({
-                    type: 'POST',
-                    url: 'mail.php',
-                    data: $(this).serialize()
-                }).done(function() {
-                    $('#contact-form').trigger('reset');
-                    response.html('<i class="fa fa-thumbs-up"></i>Thanks for your mail.');
-                });
-                return false;
-        });
 
     });
 })(jQuery);
